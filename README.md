@@ -1,2 +1,2 @@
-# Program-si-sharp
-program sederhana untuk final project matul pemrograman
+# Program C#
+program sederhana untuk final project matkul pemrograman
