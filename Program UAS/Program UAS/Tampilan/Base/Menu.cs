@@ -52,9 +52,10 @@ public abstract class Menu : InterfaceMenu
         Console.SetCursorPosition(50, 0);
         Console.Write(AtasKanan);
 
-        Console.SetCursorPosition(25 - (UkurString(teks) / 2), 0);
-        Console.Write(teks);
-        Console.Write("\n");
+        Console.SetCursorPosition(25 - (UkurString("[" + teks + "]") / 2), 0);
+        Console.BackgroundColor = ConsoleColor.DarkBlue;
+        Console.Write("[" + teks + "]");
+        Console.ResetColor();
     }
 
     public void CetakBawah(int y)

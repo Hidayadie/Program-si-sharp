@@ -4,7 +4,7 @@ public class Dashboard : Menu
 {
 
     private string[] kalimat = { "1. Data Siswa  ",
-                                 "2. Data Benda  ",
+                                 "2. Data Aset   ",
                                  "3. Keluar      "    };
     public override void Tampilkan()
     {
@@ -30,7 +30,7 @@ public class Dashboard : Menu
         Console.Write("1. Data Siswa");
 
         CetakSamping(5);
-        Console.Write("2. Data Benda");
+        Console.Write("2. Data Aset");
 
         CetakSamping(6);
         Console.Write("3. Keluar");
@@ -41,11 +41,10 @@ public class Dashboard : Menu
         CetakBawah(7);
     }
 
-    public override async void Inputan()
+    public override void Inputan()
     {
         Console.SetCursorPosition(2, 4);
-        //Console.ForegroundColor = ConsoleColor.Black;
-        Console.BackgroundColor = ConsoleColor.White;
+        Console.BackgroundColor = ConsoleColor.Green;
         Console.Write(kalimat[0]);
 
         int lokasi = 0;
@@ -67,7 +66,7 @@ public class Dashboard : Menu
                         Console.Write(kalimat[lokasi]);
                         lokasi--;
                         Console.SetCursorPosition(2, 4 + lokasi);
-                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.BackgroundColor = ConsoleColor.Green;
                         Console.Write(kalimat[lokasi]);
                     }
 
@@ -82,7 +81,7 @@ public class Dashboard : Menu
                         Console.Write(kalimat[lokasi]);
                         lokasi++;
                         Console.SetCursorPosition(2, 4 + lokasi);
-                        Console.BackgroundColor = ConsoleColor.White;
+                        Console.BackgroundColor = ConsoleColor.Green;
                         Console.Write(kalimat[lokasi]);
                     }
                     break;

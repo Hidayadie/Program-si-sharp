@@ -9,8 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Makhluk/" />
-    <Folder Include="Makhluk/Base/" />
     <Folder Include="Objek/" />
     <Folder Include="Objek/Base/" />
   </ItemGroup>

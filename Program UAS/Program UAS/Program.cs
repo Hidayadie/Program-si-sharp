@@ -12,8 +12,10 @@ namespace Utama
     {
         static void Main(string[] args)
         {
+            Console.CursorVisible = false;
+
             Menu menu;
-            menu = new Siswa();
+            menu = new MenuSiswa();
             menu.Tampilkan();
             menu.Inputan();
 
