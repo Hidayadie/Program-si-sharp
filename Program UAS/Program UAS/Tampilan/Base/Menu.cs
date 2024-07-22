@@ -16,7 +16,6 @@ public abstract class Menu : InterfaceMenu
     {
         Console.Clear();
 
-
         CetakAtas("MENU");
         //
 
@@ -25,8 +24,6 @@ public abstract class Menu : InterfaceMenu
         Console.SetCursorPosition(25 - (UkurString(" ! Override ! ") / 2), 1);
         Console.Write(" ! Override ! ");
         Console.ResetColor();
-
-
 
         //
         CetakBawah(2);

@@ -3,9 +3,9 @@
 public class Dashboard : Menu
 {
 
-    private string[] kalimat = { "1. Data Siswa",
-                                 "2. Data Benda",
-                                 "3. Keluar"    };
+    private string[] kalimat = { "1. Data Siswa  ",
+                                 "2. Data Benda  ",
+                                 "3. Keluar      "    };
     public override void Tampilkan()
     {
         Console.Clear();

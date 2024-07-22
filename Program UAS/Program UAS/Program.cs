@@ -13,7 +13,7 @@ namespace Utama
         static void Main(string[] args)
         {
             Menu menu;
-            menu = new Dashboard();
+            menu = new Siswa();
             menu.Tampilkan();
             menu.Inputan();
 
