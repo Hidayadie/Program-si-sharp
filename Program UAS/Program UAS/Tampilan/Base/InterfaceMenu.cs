@@ -3,9 +3,9 @@
 public interface InterfaceMenu
 {
     void Tampilkan();
-    void CetakAtas();
-    void CetakBawah();
-
-    void Pilihan();
+    void CetakAtas(string teks);
+    void CetakBawah(string teks,int y);
+    void CetakSamping(int y);
+    void Inputan();
     int UkurString(string foo);
 }

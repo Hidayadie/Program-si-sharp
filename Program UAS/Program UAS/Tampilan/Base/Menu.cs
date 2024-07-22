@@ -2,31 +2,39 @@
 
 public abstract class Menu : InterfaceMenu
 {
-    private string Judul = "MENU";
-    private char AtasKiri = '┌';
-    private char BawahKiri = '└';
-    private char AtasKanan = '┐';
-    private char BawahKanan = '┘';
+    protected string Judul = "MENU";
+    private protected char AtasKiri = '┌';
+    private protected char BawahKiri = '└';
+    private protected char AtasKanan = '┐';
+    private protected char BawahKanan = '┘';
+    private protected char Hori = '─';
+    private protected char Verti = '│';
 
-    private char Hori = '─';
-    private char Verti = '│';
+
+
     public virtual void Tampilkan()
     {
         Console.Clear();
         
 
-        CetakAtas();
-        Console.Write(Verti);
+        CetakAtas(Judul);
+        //
+
+        CetakSamping(1);
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.Write("        Override...       ");
+        Console.SetCursorPosition(20 - (UkurString(" ! Override ! ") / 2), 1);
+        Console.Write(" ! Override ! ");
         Console.ResetColor();
-        Console.Write(Verti);
-        CetakBawah();
+        
+
+
+        //
+        CetakBawah(Judul, 2);
 
 
     }
 
-    public virtual void Pilihan()
+    public virtual void Inputan()
     {
         //throw new NotImplementedException();
     }
@@ -36,26 +44,40 @@ public abstract class Menu : InterfaceMenu
         return foo.Length;
     }
 
-    public void CetakAtas()
+    public void CetakAtas(string teks)
     {
+        Console.SetCursorPosition(0,0);
         Console.Write(AtasKiri);
-        Console.Write(Hori);
-        Console.Write(Judul);
-        for (int i = 0; i < 25 - UkurString(Judul); i++) {
+        for (int i = 0; i < 40; i++) {
             Console.Write(Hori);
         }
+        Console.SetCursorPosition(40,0);
         Console.Write(AtasKanan);
+
+        Console.SetCursorPosition(20 - (UkurString(Judul) / 2),0);
+        Console.Write(teks);
         Console.Write("\n");
     }
 
-    public void CetakBawah()
+    public void CetakBawah(string teks, int y)
     {
-        Console.Write("\n");
+        Console.SetCursorPosition(0, y);
         Console.Write(BawahKiri);
-        for (int i = 0; i < 22 + UkurString(Judul); i++) {
+        for (int i = 0; i < 40; i++) {
             Console.Write(Hori);
         }
+        Console.SetCursorPosition(40, y);
         Console.Write(BawahKanan);
         Console.Write("\n");
+    }
+
+    public void CetakSamping(int y)
+    {
+        Console.SetCursorPosition(0,y);
+        Console.Write(Verti);
+        Console.SetCursorPosition(40,y);
+        Console.Write(Verti);
+        Console.SetCursorPosition(2,y);
+        
     }
 }

@@ -14,6 +14,7 @@ namespace Utama
         {
             Login login = new Login();
             login.Tampilkan();
+            login.Inputan();
 
         }
     }
