@@ -9,12 +9,12 @@ public class Login : Menu
         Console.Clear();
 
 
-        CetakAtas(Judul);
+        CetakAtas("LOGIN");
         //
 
         CetakSamping(1);
         Console.ForegroundColor = ConsoleColor.Blue;
-        Console.SetCursorPosition(20 - (UkurString("Silahkan Login terlebih dahulu") / 2), 1);
+        Console.SetCursorPosition(25 - (UkurString("Silahkan Login terlebih dahulu") / 2), 1);
         Console.Write("Silahkan Login terlebih dahulu");
         Console.ResetColor();
 
@@ -33,7 +33,7 @@ public class Login : Menu
 
 
         //
-        CetakBawah(Judul, 6);
+        CetakBawah(6);
     }
 
     public override void Inputan()

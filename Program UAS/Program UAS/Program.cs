@@ -12,9 +12,10 @@ namespace Utama
     {
         static void Main(string[] args)
         {
-            Login login = new Login();
-            login.Tampilkan();
-            login.Inputan();
+            Menu menu;
+            menu = new Dashboard();
+            menu.Tampilkan();
+            menu.Inputan();
 
         }
     }
