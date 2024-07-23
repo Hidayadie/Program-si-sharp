@@ -2,5 +2,6 @@
 
 public interface InterfaceOrang
 {
-
+    public void Tampilkan();
+    public void UbahData();
 }
