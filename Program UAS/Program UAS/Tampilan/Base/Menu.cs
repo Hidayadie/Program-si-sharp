@@ -31,9 +31,10 @@ public abstract class Menu : InterfaceMenu
 
     }
 
-    public virtual void Inputan()
+    public virtual Menu Inputan()
     {
         //throw new NotImplementedException();
+        return new Login();
     }
 
     public int UkurString(string foo)

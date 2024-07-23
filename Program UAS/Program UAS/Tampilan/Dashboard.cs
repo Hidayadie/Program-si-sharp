@@ -2,6 +2,12 @@
 
 public class Dashboard : Menu
 {
+    public Dashboard()
+    {
+        Tampilkan();
+        Inputan();
+
+    }
 
     private string[] kalimat = { "1. Data Siswa  ",
                                  "2. Data Aset   ",
@@ -41,18 +47,19 @@ public class Dashboard : Menu
         CetakBawah(7);
     }
 
-    public override void Inputan()
+    public override Menu Inputan()
     {
         Console.SetCursorPosition(2, 4);
         Console.BackgroundColor = ConsoleColor.Green;
         Console.Write(kalimat[0]);
 
         int lokasi = 0;
-        while (true)
+        ConsoleKey key;
+        do
         {
             // Membaca input dari keyboard
             ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);
-            ConsoleKey key = keyInfo.Key;
+            key = keyInfo.Key;
 
             // Menangani input
             switch (key)
@@ -86,14 +93,12 @@ public class Dashboard : Menu
                     }
                     break;
 
-                case ConsoleKey.Enter:
-                    return;
-
-
-                default:
-                    return;
             }
-        }
+        } while (key != ConsoleKey.Enter);
+
+        if (lokasi == 0) return new MenuSiswa();
+        if (lokasi == 1) return new MenuAset();
+        else return null;
 
     }
 }

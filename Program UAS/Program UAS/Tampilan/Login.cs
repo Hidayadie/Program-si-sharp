@@ -2,8 +2,13 @@
 
 public class Login : Menu
 {
-    //private string Username;
-    //private string Password;
+    public Login()
+    {
+        Tampilkan();
+        Inputan();
+    }
+    private string Username = "";
+    private string Password = "";
     public override void Tampilkan()
     {
         Console.Clear();
@@ -36,12 +41,13 @@ public class Login : Menu
         CetakBawah(6);
     }
 
-    public override void Inputan()
+    public override Menu Inputan()
     {
         Console.SetCursorPosition(12, 3);
-        string Username = Console.ReadLine();
+        Username = Console.ReadLine();
         Console.SetCursorPosition(12, 4);
-        string Password = Console.ReadLine();
-
+        Password = Console.ReadLine();
+        Console.CursorVisible = false;
+        return new Dashboard();
     }
 }

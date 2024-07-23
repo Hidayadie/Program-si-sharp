@@ -3,6 +3,11 @@
 public class MenuSiswa : Menu
 {
 
+    public MenuSiswa()
+    {
+        Tampilkan();
+        Inputan();
+    }
     private string[] kalimat = { "Tampilkan Keseluruhan ",
                                  "Edit Database         ",
                                  "Kembali               "};
@@ -20,8 +25,9 @@ public class MenuSiswa : Menu
         Console.Write(" ");
 
         CetakSamping(3);
-        Console.SetCursorPosition(1,3);
-        for (int i =0;i < 49; i++) {
+        Console.SetCursorPosition(1, 3);
+        for (int i = 0; i < 49; i++)
+        {
             Console.Write("-");
         }
 
@@ -56,20 +62,19 @@ public class MenuSiswa : Menu
     }
 
 
-    public override void Inputan()
+    public override Menu Inputan()
     {
         Console.SetCursorPosition(27, 5);
         Console.BackgroundColor = ConsoleColor.Green;
         Console.Write(kalimat[0]);
 
         int lokasi = 0;
-        while (true)
+        ConsoleKey key;
+        do
         {
-            // Membaca input dari keyboard
             ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);
-            ConsoleKey key = keyInfo.Key;
+            key = keyInfo.Key;
 
-            // Menangani input
             switch (key)
             {
                 case ConsoleKey.UpArrow:
@@ -84,7 +89,7 @@ public class MenuSiswa : Menu
                         Console.BackgroundColor = ConsoleColor.Green;
                         Console.Write(kalimat[lokasi]);
                     }
-                
+
 
                     break;
 
@@ -99,17 +104,17 @@ public class MenuSiswa : Menu
                         Console.SetCursorPosition(27, 5 + lokasi);
                         Console.BackgroundColor = ConsoleColor.Green;
                         Console.Write(kalimat[lokasi]);
-                    } 
-                    
+                    }
+
                     break;
 
-                case ConsoleKey.Enter:
-                    return;
-
-
-                default:
-                    return;
             }
-        }
+        } while (key != ConsoleKey.Enter);
+
+        if (lokasi == 0) return new Login();
+        if (lokasi == 1) return new Login();
+        if (lokasi == 2) return new Dashboard();
+        else return new Login();
+
     }
 }
