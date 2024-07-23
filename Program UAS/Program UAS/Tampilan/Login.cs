@@ -43,6 +43,7 @@ public class Login : Menu
 
     public override Menu Inputan()
     {
+        Console.CursorVisible = true;
         Console.SetCursorPosition(12, 3);
         Username = Console.ReadLine();
         Console.SetCursorPosition(12, 4);
