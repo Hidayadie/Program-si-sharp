@@ -6,6 +6,7 @@ public interface InterfaceMenu
     void CetakAtas(string teks);
     void CetakBawah(int y);
     void CetakSamping(int y);
+    void CetakSampingT(int y);
     //void Inputan();
     int UkurString(string foo);
 }

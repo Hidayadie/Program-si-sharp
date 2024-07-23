@@ -9,8 +9,11 @@ public abstract class Menu : InterfaceMenu
     private protected char BawahKanan = '┘';
     private protected char Hori = '─';
     private protected char Verti = '│';
-
-
+    private protected char TAtas = '┬';
+    private protected char TBawah = '┴';
+    private protected char TKanan = '┤';
+    private protected char TKiri = '├';
+    private protected char Plus = '┼';
 
     public virtual void Tampilkan()
     {
@@ -69,7 +72,6 @@ public abstract class Menu : InterfaceMenu
         }
         Console.SetCursorPosition(50, y);
         Console.Write(BawahKanan);
-        Console.Write("\n");
     }
 
     public void CetakSamping(int y)
@@ -80,5 +82,14 @@ public abstract class Menu : InterfaceMenu
         Console.Write(Verti);
         Console.SetCursorPosition(2, y);
 
+    }
+
+    public void CetakSampingT(int y)
+    {
+        Console.SetCursorPosition(0, y);
+        Console.Write(TKiri);
+        Console.SetCursorPosition(50, y);
+        Console.Write(TKanan);
+        Console.SetCursorPosition(2, y);
     }
 }

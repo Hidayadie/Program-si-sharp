@@ -17,7 +17,7 @@ namespace Utama
             Menu menu;
             do
             {
-                menu = new Login();
+                menu = new TabelOrang();
             } while (menu != null);
 
 

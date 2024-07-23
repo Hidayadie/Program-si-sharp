@@ -99,7 +99,7 @@ public class Dashboard : Menu
         Console.ResetColor();
         if (lokasi == 0) return new MenuSiswa();
         if (lokasi == 1) return new MenuAset();
-        else return null;
+        else return new Login();
 
     }
 }
