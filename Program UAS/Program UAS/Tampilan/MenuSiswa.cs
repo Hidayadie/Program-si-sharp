@@ -111,6 +111,7 @@ public class MenuSiswa : Menu
             }
         } while (key != ConsoleKey.Enter);
 
+        Console.ResetColor();
         if (lokasi == 0) return new Login();
         if (lokasi == 1) return new Login();
         if (lokasi == 2) return new Dashboard();

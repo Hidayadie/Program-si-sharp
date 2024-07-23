@@ -9,9 +9,9 @@ public class MenuAset : Menu
         Tampilkan();
         Inputan();
     }
-    private string[] kalimat = { "Kembali  ",
+    private string[] kalimat = { "Kembali",
                                  "Tampilkan",
-                                 "Edit     "};
+                                 "Edit"};
     public override void Tampilkan()
     {
 
@@ -67,13 +67,14 @@ public class MenuAset : Menu
         }
         CetakSamping(10);
 
+        CetakSamping(11);
         Console.SetCursorPosition(2, 11);
         Console.Write("Kembali");
 
         Console.SetCursorPosition(22, 11);
         Console.Write("Tampilkan");
 
-        Console.SetCursorPosition(44, 11);
+        Console.SetCursorPosition(42, 11);
         Console.Write("Edit");
 
         //
@@ -95,8 +96,8 @@ public class MenuAset : Menu
 
             switch (key)
             {
-                case ConsoleKey.UpArrow:
-                case ConsoleKey.W:
+                case ConsoleKey.LeftArrow:
+                case ConsoleKey.A:
                     if (lokasi > 0)
                     {
                         Console.SetCursorPosition(2 + (lokasi * 20), 11);
@@ -111,8 +112,8 @@ public class MenuAset : Menu
 
                     break;
 
-                case ConsoleKey.DownArrow:
-                case ConsoleKey.S:
+                case ConsoleKey.RightArrow:
+                case ConsoleKey.D:
                     if (lokasi < 2)
                     {
                         Console.SetCursorPosition(2 + (lokasi * 20), 11);
@@ -128,6 +129,8 @@ public class MenuAset : Menu
             }
 
         } while (key != ConsoleKey.Enter);
+
+        Console.ResetColor();
         if (lokasi == 0) return new Dashboard();
         if (lokasi == 1) return new Login();
         if (lokasi == 2) return new Login();

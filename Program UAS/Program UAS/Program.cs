@@ -15,10 +15,10 @@ namespace Utama
             //Console.CursorVisible = false;
 
             Menu menu;
-            while (true)
+            do
             {
                 menu = new Login();
-            }
+            } while (menu != null);
 
 
         }

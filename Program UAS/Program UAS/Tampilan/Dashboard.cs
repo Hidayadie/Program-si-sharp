@@ -96,6 +96,7 @@ public class Dashboard : Menu
             }
         } while (key != ConsoleKey.Enter);
 
+        Console.ResetColor();
         if (lokasi == 0) return new MenuSiswa();
         if (lokasi == 1) return new MenuAset();
         else return null;
