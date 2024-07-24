@@ -2,7 +2,8 @@
 
 public class Biodata : Menu
 {
-    Orang orang;
+    private Orang orang;
+    private int index;
     private string[] kalimat = { "Kembali",
                                  "Detail",
                                  "Edit"        ,
@@ -11,6 +12,7 @@ public class Biodata : Menu
     public Biodata(Orang orang, int index)
     {
         this.orang = orang;
+        this.index = index;
         Tampilkan();
         orang.Tampilkan();
         Inputan();
@@ -129,7 +131,7 @@ public class Biodata : Menu
 
                 case ConsoleKey.RightArrow:
                 case ConsoleKey.D:
-                    if (lokasi < 5)
+                    if (lokasi < 4)
                     {
                         Console.SetCursorPosition(3 + (lokasi * 10), 11);
                         Console.ResetColor();
@@ -146,9 +148,12 @@ public class Biodata : Menu
         } while (key != ConsoleKey.Enter);
 
         Console.ResetColor();
-        if (lokasi == 0) return new Dashboard();
+        if (lokasi == 0) return new TabelOrang();
         if (lokasi == 1) return new Login();
         if (lokasi == 2) return new Login();
+        if (lokasi == 3) return new Biodata(Database.orang[(index == 0) ? 0 : --index], index);
+        if (lokasi == 4) return new Biodata(Database.orang[(index == Database.orang.Count) ? Database.orang.Count : ++index], index);
+
 
         else return null;
     }

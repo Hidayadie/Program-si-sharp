@@ -35,6 +35,7 @@ public static class Database
         new Siswa("Eka", "316", "11A", "Ips"),
         new Siswa("Feri", "317", "10C", "Ipa"),
         new Siswa("Gita", "318", "12B", "Bahasa"),
+        new Guru("Abdul", "A012", "Kimia", "S1 Farmasi")
     };
     //siswa.Add(new Siswa("Adie", "123", "12A", "Ipa"));
 
