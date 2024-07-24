@@ -11,4 +11,13 @@ public class Siswa : Orang
         this.Kelas = Kelas;
         this.Jurusan = Jurusan;
     }
+
+    public override void Tampilkan()
+    {
+        base.Tampilkan();
+        Console.SetCursorPosition(19, 7);
+        Console.Write(this.Kelas);
+        Console.SetCursorPosition(19, 8);
+        Console.Write(this.Jurusan);
+    }
 }

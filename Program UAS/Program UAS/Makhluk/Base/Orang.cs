@@ -2,6 +2,7 @@
 
 public abstract class Orang : InterfaceOrang
 {
+    public string Status = "";
     public string JenisKelamin = "";
     public string ID;
     public string Nama;
@@ -17,7 +18,14 @@ public abstract class Orang : InterfaceOrang
     }
     public virtual void Tampilkan()
     {
-        throw new NotImplementedException();
+        Console.SetCursorPosition(19, 3);
+        Console.Write(this.Nama);
+        Console.SetCursorPosition(19, 4);
+        Console.Write(this.ID);
+        Console.SetCursorPosition(19, 5);
+        Console.Write(this.JenisKelamin);
+        Console.SetCursorPosition(19, 6);
+        Console.Write(this.Status);
     }
 
     public virtual void UbahData()

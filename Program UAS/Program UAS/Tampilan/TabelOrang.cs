@@ -5,7 +5,8 @@ public class TabelOrang : Menu
     public TabelOrang()
     {
         Tampilkan();
-        CetakList();
+        CetakList(1);
+        Inputan();
 
     }
     public override void Tampilkan()
@@ -138,11 +139,21 @@ public class TabelOrang : Menu
 
     public override Menu Inputan()
     {
-        Console.SetCursorPosition(27, 5);
+
+        Console.SetCursorPosition(2, 6);
         Console.BackgroundColor = ConsoleColor.Green;
-        //Console.Write(kalimat[0]);
+        Console.SetCursorPosition(2, 6);
+        Console.Write("1");
+        Console.SetCursorPosition(7, 6);
+        Console.Write(Database.orang[0].ID);
+        Console.SetCursorPosition(16, 6);
+        Console.Write(Database.orang[0].Nama);
+        Console.SetCursorPosition(38, 6);
+        Console.Write(Database.orang[0].Status);
 
         int lokasi = 0;
+        int index = 0;
+        int hal = 1;
         ConsoleKey key;
         do
         {
@@ -153,15 +164,54 @@ public class TabelOrang : Menu
             {
                 case ConsoleKey.UpArrow:
                 case ConsoleKey.W:
+
+                    if (lokasi == 0 && hal > 1)
+                    {
+                        hal--;
+                        index--;
+
+                        CetakList(hal);
+                        lokasi = 6;
+
+
+                        Console.BackgroundColor = ConsoleColor.Green;
+                        Console.SetCursorPosition(2, 6 + lokasi);
+                        Console.Write(index + 1);
+                        Console.SetCursorPosition(7, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].ID);
+                        Console.SetCursorPosition(16, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].Nama);
+                        Console.SetCursorPosition(38, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].Status);
+
+                        break;
+                    }
+
                     if (lokasi > 0)
                     {
-                        // Console.SetCursorPosition(27, 5 + lokasi);
-                        // Console.ResetColor();
-                        // Console.Write(kalimat[lokasi]);
-                        // lokasi--;
-                        // Console.SetCursorPosition(27, 5 + lokasi);
-                        // Console.BackgroundColor = ConsoleColor.Green;
-                        // Console.Write(kalimat[lokasi]);
+                        Console.ResetColor();
+                        Console.SetCursorPosition(2, 6 + lokasi);
+                        Console.Write(index + 1);
+                        Console.SetCursorPosition(7, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].ID);
+                        Console.SetCursorPosition(16, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].Nama);
+                        Console.SetCursorPosition(38, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].Status);
+
+                        lokasi--;
+                        index--;
+                        Console.BackgroundColor = ConsoleColor.Green;
+                        Console.SetCursorPosition(2, 6 + lokasi);
+                        Console.Write(index + 1);
+                        Console.SetCursorPosition(7, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].ID);
+                        Console.SetCursorPosition(16, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].Nama);
+                        Console.SetCursorPosition(38, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].Status);
+
+                        Console.ResetColor();
                     }
 
 
@@ -169,15 +219,51 @@ public class TabelOrang : Menu
 
                 case ConsoleKey.DownArrow:
                 case ConsoleKey.S:
-                    if (lokasi < 2)
+                    if (lokasi == 6)
                     {
-                        // Console.SetCursorPosition(27, 5 + lokasi);
-                        // Console.ResetColor();
-                        // Console.Write(kalimat[lokasi]);
-                        // lokasi++;
-                        // Console.SetCursorPosition(27, 5 + lokasi);
-                        // Console.BackgroundColor = ConsoleColor.Green;
-                        // Console.Write(kalimat[lokasi]);
+                        hal++;
+                        index++;
+
+                        CetakList(hal);
+                        lokasi = 0;
+
+                        Console.SetCursorPosition(2, 6 + lokasi);
+                        Console.BackgroundColor = ConsoleColor.Green;
+                        Console.SetCursorPosition(2, 6 + lokasi);
+                        Console.Write(index + 1);
+                        Console.SetCursorPosition(7, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].ID);
+                        Console.SetCursorPosition(16, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].Nama);
+                        Console.SetCursorPosition(38, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].Status);
+
+                        break;
+                    }
+                    if (lokasi < Database.orang.Count - 1 && index < Database.orang.Count - 1)
+                    {
+                        Console.ResetColor();
+                        Console.SetCursorPosition(2, 6 + lokasi);
+                        Console.Write(index + 1);
+                        Console.SetCursorPosition(7, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].ID);
+                        Console.SetCursorPosition(16, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].Nama);
+                        Console.SetCursorPosition(38, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].Status);
+                        lokasi++;
+                        index++;
+                        Console.BackgroundColor = ConsoleColor.Green;
+                        Console.SetCursorPosition(2, 6 + lokasi);
+                        Console.Write(index + 1);
+                        Console.SetCursorPosition(7, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].ID);
+                        Console.SetCursorPosition(16, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].Nama);
+                        Console.SetCursorPosition(38, 6 + lokasi);
+                        Console.Write(Database.orang[0 + index].Status);
+
+                        Console.ResetColor();
                     }
 
                     break;
@@ -185,36 +271,60 @@ public class TabelOrang : Menu
                     return new MenuSiswa();
 
                 case ConsoleKey.E:
-                    return new EditOrang(lokasi);
+                    //return new Biodata(lokasi);
+                    break;
 
             }
         } while (key != ConsoleKey.Enter);
 
         Console.ResetColor();
-        if (lokasi == 0) return new TabelOrang();
-        if (lokasi == 1) return new Login();
-        if (lokasi == 2) return new Dashboard();
-        else return new TabelOrang();
+        return new Biodata(Database.orang[index], index);
     }
 
-    private void CetakList()
+    private void CetakList(int hal)
     {
+        int i = (hal - 1) * 7;
+        int max = hal * 7;
+        int a = 0;
 
-
-        Database.siswa.Add(new Siswa("Adie", "123", "12A", "Ipa"));
-
-        int i = 1;
-        foreach (Siswa siswa in Database.siswa)
+        // Clear previous data on the console
+        for (int b = 0; b < 7; b++)
         {
-            Console.SetCursorPosition(2, 5 + i);
-            Console.Write(i);
-            Console.SetCursorPosition(8, 5 + i);
-            Console.Write(siswa.ID);
-            Console.SetCursorPosition(16, 5 + i);
-            Console.Write(siswa.Nama);
-            Console.SetCursorPosition(38, 5 + i);
-            Console.Write("Siswa Aktif");
+            Console.SetCursorPosition(2, 6 + b);
+            Console.Write("   "); // Clear ID column
+            Console.SetCursorPosition(7, 6 + b);
+            Console.Write("       "); // Clear Name column
+            Console.SetCursorPosition(16, 6 + b);
+            Console.Write("                     "); // Clear Status column
+        }
+
+        // Display the list of students
+        while (i < Database.orang.Count && i < max)
+        {
+            Console.SetCursorPosition(2, 6 + a);
+            Console.Write(i + 1); // Display the index
+            Console.SetCursorPosition(7, 6 + a);
+            Console.Write(Database.orang[i].ID); // Display the ID
+            Console.SetCursorPosition(16, 6 + a);
+            Console.Write(Database.orang[i].Nama); // Display the Name
+            Console.SetCursorPosition(38, 6 + a);
+            Console.Write(Database.orang[i].Status); // Display the Status
+
+            a++;
             i++;
         }
     }
+
+    // for (int i = hal; i < hal *7; i++)
+    // {
+    //     Console.SetCursorPosition(2, 5 + i);
+    //     Console.Write(i);
+    //     Console.SetCursorPosition(7, 5 + i);
+    //     Console.Write(Database.siswa[i].ID);
+    //     Console.SetCursorPosition(16, 5 + i);
+    //     Console.Write(Database.siswa[i].Nama);
+    //     Console.SetCursorPosition(38, 5 + i);
+    //     Console.Write(Database.siswa[i].Status);
+    // }    
+
 }

@@ -113,7 +113,7 @@ public class MenuSiswa : Menu
 
         Console.ResetColor();
         if (lokasi == 0) return new TabelOrang();
-        if (lokasi == 1) return new EditOrang(0);
+        //if (lokasi == 1) return new Biodata(0);
         if (lokasi == 2) return new Dashboard();
         else return new TabelOrang();
 
