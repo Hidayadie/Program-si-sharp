@@ -2,13 +2,13 @@
 
 public abstract class Orang : InterfaceOrang
 {
-    private protected string Nama;
-    private protected string ID;
-    private protected string JenisKelamin = "";
-    private protected string TanggalLahir = "";
-    private protected string Alamat = "";
-    private protected string NoHP = "";
-    private protected string Email = "";
+    public string JenisKelamin = "";
+    public string ID;
+    public string Nama;
+    public string TanggalLahir = "";
+    public string Alamat = "";
+    public string NoHP = "";
+    public string Email = "";
 
     public Orang(string Nama, string ID)
     {

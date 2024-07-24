@@ -5,7 +5,8 @@ public class TabelOrang : Menu
     public TabelOrang()
     {
         Tampilkan();
-        Console.ReadKey();
+        CetakList();
+
     }
     public override void Tampilkan()
     {
@@ -133,5 +134,87 @@ public class TabelOrang : Menu
         Console.SetCursorPosition(39, 14);
         Console.Write("[e] Edit");
         CetakBawah(15);
+    }
+
+    public override Menu Inputan()
+    {
+        Console.SetCursorPosition(27, 5);
+        Console.BackgroundColor = ConsoleColor.Green;
+        //Console.Write(kalimat[0]);
+
+        int lokasi = 0;
+        ConsoleKey key;
+        do
+        {
+            ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);
+            key = keyInfo.Key;
+
+            switch (key)
+            {
+                case ConsoleKey.UpArrow:
+                case ConsoleKey.W:
+                    if (lokasi > 0)
+                    {
+                        // Console.SetCursorPosition(27, 5 + lokasi);
+                        // Console.ResetColor();
+                        // Console.Write(kalimat[lokasi]);
+                        // lokasi--;
+                        // Console.SetCursorPosition(27, 5 + lokasi);
+                        // Console.BackgroundColor = ConsoleColor.Green;
+                        // Console.Write(kalimat[lokasi]);
+                    }
+
+
+                    break;
+
+                case ConsoleKey.DownArrow:
+                case ConsoleKey.S:
+                    if (lokasi < 2)
+                    {
+                        // Console.SetCursorPosition(27, 5 + lokasi);
+                        // Console.ResetColor();
+                        // Console.Write(kalimat[lokasi]);
+                        // lokasi++;
+                        // Console.SetCursorPosition(27, 5 + lokasi);
+                        // Console.BackgroundColor = ConsoleColor.Green;
+                        // Console.Write(kalimat[lokasi]);
+                    }
+
+                    break;
+                case ConsoleKey.Q:
+                    return new MenuSiswa();
+
+                case ConsoleKey.E:
+                    return new EditOrang(lokasi);
+
+            }
+        } while (key != ConsoleKey.Enter);
+
+        Console.ResetColor();
+        if (lokasi == 0) return new TabelOrang();
+        if (lokasi == 1) return new Login();
+        if (lokasi == 2) return new Dashboard();
+        else return new TabelOrang();
+    }
+
+    private void CetakList()
+    {
+
+
+        Database.siswa.Add(new Siswa("Adie", "123", "12A", "Ipa"));
+
+        int i = 1;
+        foreach (Siswa siswa in Database.siswa)
+        {
+            Console.SetCursorPosition(2, 5 + i);
+            Console.Write(i);
+            Console.SetCursorPosition(8, 5 + i);
+            Console.Write(siswa.ID);
+            Console.SetCursorPosition(16, 5 + i);
+            Console.Write(siswa.Nama);
+            Console.SetCursorPosition(38, 5 + i);
+            Console.Write("Siswa Aktif");
+            i++;
+        }
     }
 }

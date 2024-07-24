@@ -2,9 +2,10 @@
 
 public class EditOrang : Menu
 {
-    public EditOrang()
+    public EditOrang(int index)
     {
-
+        Tampilkan();
+        Console.ReadKey();
     }
 
     public override void Tampilkan()

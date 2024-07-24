@@ -13,11 +13,12 @@ namespace Utama
         static void Main(string[] args)
         {
             //Console.CursorVisible = false;
-
+            
             Menu menu;
             do
             {
                 menu = new TabelOrang();
+                Console.ReadKey();
             } while (menu != null);
 
 

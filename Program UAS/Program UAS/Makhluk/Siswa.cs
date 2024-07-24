@@ -2,8 +2,8 @@
 
 public class Siswa : Orang
 {
-    private string Kelas;
-    private string Jurusan;
+    public string Kelas;
+    public string Jurusan;
 
     public Siswa(string Nama, string ID, string Kelas, string Jurusan) :
            base(Nama, ID)
