@@ -5,11 +5,14 @@ public class Siswa : Orang
     public string Kelas;
     public string Jurusan;
 
-    public Siswa(string Nama, string ID, string Kelas, string Jurusan) :
+    public Siswa(string Nama        , string ID     , string Status , 
+                 string JenisKelamin, string Kelas  , string Jurusan, 
+                 string Alamat      , string Email  , string NoHP   ) :
            base(Nama, ID)
     {
         this.Kelas = Kelas;
         this.Jurusan = Jurusan;
+        this.Status = "Siswa Aktif";
     }
 
     public override void Tampilkan()

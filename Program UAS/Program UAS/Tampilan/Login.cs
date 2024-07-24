@@ -43,12 +43,25 @@ public class Login : Menu
 
     public override Menu Inputan()
     {
-        Console.CursorVisible = true;
-        Console.SetCursorPosition(12, 3);
-        Username = Console.ReadLine();
-        Console.SetCursorPosition(12, 4);
-        Password = Console.ReadLine();
-        Console.CursorVisible = false;
+        do
+        {
+            Console.CursorVisible = true;
+            Console.SetCursorPosition(12, 3);
+            Username = Console.ReadLine() ?? ""; ;
+            Console.SetCursorPosition(12, 4);
+            Password = Console.ReadLine() ?? ""; ;
+            Console.CursorVisible = false;
+            if (Username == "Admin" && Password == "admin123") break;
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.SetCursorPosition(25 - (UkurString("User atau password salah") / 2), 2);
+            Console.Write("User atau password salah");
+            Console.ResetColor();
+            Console.SetCursorPosition(12, 3);
+            Console.Write("                         ");
+            Console.SetCursorPosition(12, 4);
+            Console.Write("                         ");
+
+        } while (true);
         return new Dashboard();
     }
 }

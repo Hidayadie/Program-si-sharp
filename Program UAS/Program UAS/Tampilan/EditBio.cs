@@ -1,6 +1,6 @@
 ﻿namespace Program_UAS;
 
-public class Biodata : Menu
+public class EditBio : Menu
 {
     private Orang orang;
     private int index;
@@ -9,20 +9,24 @@ public class Biodata : Menu
                                  "Edit"        ,
                                  "prev"        ,
                                  "next"        };
-    public Biodata(Orang orang, int index)
+    public EditBio(Orang orang, int index)
     {
         this.orang = orang;
         this.index = index;
         Tampilkan();
         orang.Tampilkan();
-        Inputan();
+        //Inputan();
+        Console.ReadKey();
+        Console.ReadKey();
+        Console.ReadKey();
+        Console.ReadKey();
+        Console.ReadKey();
 
     }
-
     public override void Tampilkan()
     {
         Console.Clear();
-        CetakAtas("*");
+        CetakAtas("EDIT");
         CetakSamping(1);
         Console.SetCursorPosition(25 - (UkurString("Data Pribadi") / 2), 1);
         Console.Write("Data Pribadi");
@@ -97,65 +101,4 @@ public class Biodata : Menu
 
         CetakBawah(12);
     }
-
-    public override Menu Inputan()
-    {
-        Console.SetCursorPosition(3, 11);
-        Console.BackgroundColor = ConsoleColor.Green;
-        Console.Write(kalimat[0]);
-
-        int lokasi = 0;
-        ConsoleKey key;
-        do
-        {
-            ConsoleKeyInfo keyInfo = Console.ReadKey(intercept: true);
-            key = keyInfo.Key;
-
-            switch (key)
-            {
-                case ConsoleKey.LeftArrow:
-                case ConsoleKey.A:
-                    if (lokasi > 0)
-                    {
-                        Console.SetCursorPosition(3 + (lokasi * 10), 11);
-                        Console.ResetColor();
-                        Console.Write(kalimat[lokasi]);
-                        lokasi--;
-                        Console.SetCursorPosition(3 + (lokasi * 10), 11);
-                        Console.BackgroundColor = ConsoleColor.Green;
-                        Console.Write(kalimat[lokasi]);
-                    }
-
-
-                    break;
-
-                case ConsoleKey.RightArrow:
-                case ConsoleKey.D:
-                    if (lokasi < 4)
-                    {
-                        Console.SetCursorPosition(3 + (lokasi * 10), 11);
-                        Console.ResetColor();
-                        Console.Write(kalimat[lokasi]);
-                        lokasi++;
-                        Console.SetCursorPosition(3 + (lokasi * 10), 11);
-                        Console.BackgroundColor = ConsoleColor.Green;
-                        Console.Write(kalimat[lokasi]);
-                    }
-
-                    break;
-            }
-
-        } while (key != ConsoleKey.Enter);
-
-        Console.ResetColor();
-        if (lokasi == 0) return new TabelOrang();
-        //if (lokasi == 1) return new EditBio(Database.orang[index], index);
-        if (lokasi == 2) return new EditBio(Database.orang[index], index);
-        if (lokasi == 3) return new Biodata(Database.orang[(index == 0) ? 0 : --index], index);
-        if (lokasi == 4) return new Biodata(Database.orang[(index == Database.orang.Count) ? Database.orang.Count : ++index], index);
-
-
-        else return new Login();//EditBio(Database.orang[index], index);
-    }
-
 }
